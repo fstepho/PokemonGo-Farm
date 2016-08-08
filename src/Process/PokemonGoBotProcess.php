@@ -131,7 +131,8 @@ class PokemonGoBotProcess
             $process->run();
             return $process->getOutput();
         } catch (\RuntimeException $e) {
-            return;
+			echo $e.getMessage();
+			return $e.getMessage();
         }
     }
 }
