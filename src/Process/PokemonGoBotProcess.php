@@ -36,7 +36,7 @@ class PokemonGoBotProcess
         $this->clearLog($config);
 
         $command = sprintf(
-            'pip install -r requirements.txt && ./pokecli.py -cf %s > %s',
+            'pip install -r requirements.txt && python pokecli.py -cf %s > %s',
             $configPath,
             $this->getLogFilePath($config)
         );
