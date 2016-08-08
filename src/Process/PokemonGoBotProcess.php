@@ -36,18 +36,19 @@ class PokemonGoBotProcess
         $this->clearLog($config);
 
         $command = sprintf(
-            'pip install -r requirements.txt && python pokecli.py -cf %s > %s',
+            'python pokecli.py -cf %s > %s',
             $configPath,
             $this->getLogFilePath($config)
         );
 
+		/*
         if ($this->virtualEnv) {
             $command = 'virtualenv . && source bin/activate && ' . $command;
         }
-
+		*/
         return $this->run(
             sprintf(
-                '(cd %s/../PokemonGo-Bot %s) &',
+                '(cd %s/../PokemonGo-Bot && %s) &',
                 SilexApp::getInstance()['app.dir'],
                 $command
             )
@@ -89,7 +90,11 @@ class PokemonGoBotProcess
             false
         );
 
-        return count(array_filter(explode("\n", $result))) > 2;
+        if (count(array_filter(explode("\n", $result))) > 2){
+			return true;
+		} else {
+			return false;
+		}
     }
 
     /**
@@ -124,6 +129,7 @@ class PokemonGoBotProcess
 
         if ($background) {
             $process->start();
+			usleep(50000);
             return $process->getPid();
         }
 
@@ -131,8 +137,8 @@ class PokemonGoBotProcess
             $process->run();
             return $process->getOutput();
         } catch (\RuntimeException $e) {
-			echo $e.getMessage();
-			return $e.getMessage();
+			echo $e->getMessage();
+			return $e->getMessage();
         }
     }
 }
