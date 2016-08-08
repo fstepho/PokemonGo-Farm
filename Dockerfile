@@ -131,7 +131,7 @@ RUN php composer.phar install
 RUN npm install -g bower
 RUN bower install --allow-root --force
 RUN cp app/config/parameters.json.dist app/config/parameters.json
-
+RUN cp PokemonGo-Bot/release_config.json.example PokemonGo-Bot/release_config.json
 RUN cd /var/www/html/PokemonGo-Bot && pip install -r requirements.txt && virtualenv . && source bin/activate
 
 RUN chown -R www-data:www-data /var/www/html

@@ -1,0 +1,8 @@
+docker build -t farm .
+docker stop farm
+docker rm farm
+docker run -d -p 8000:80 --name=farm farm
+docker run -d -v $(pwd)/src:/var/www/html/src -v $(pwd)/app/config:/var/www/html/app/config -p 8000:80 --name=farm farm
+docker run -d -v $(pwd)/app/config:/var/www/html/app/config -p 8000:80 --name=farm farm
+docker exec -it farm bash
+export TERM=xterm
