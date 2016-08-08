@@ -111,7 +111,7 @@ class BotController extends BaseController
 
         if (!file_exists($logFilePath)) {
             return new JsonResponse([
-                'content' => '',
+                'content' => $logFilePath . " does not exist",
                 'status' => 'not-started'
             ]);
         }
