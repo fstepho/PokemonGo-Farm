@@ -4,3 +4,6 @@
 /app/data*
 !/app/data/.gitkeep
 /app/logs*
+*.iml
+
+.idea/workspace.xml
