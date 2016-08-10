@@ -10,7 +10,8 @@
         "symfony/validator": "^3.1",
         "symfony/config": "^3.1",
         "symfony/translation": "^3.1",
-        "symfony/finder": "^3.1"
+        "symfony/finder": "^3.1",
+		"hwi/oauth-bundle": "0.5.*-dev"
     },
     "autoload": {
         "psr-4": {

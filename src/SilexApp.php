@@ -58,7 +58,6 @@ class SilexApp
             [
                 [$this, 'configureCustomParameters'],
                 [$this, 'registerConfigurations'],
-                [$this, 'registerConfigurations'],
                 [$this, 'registerSession'],
                 [$this, 'registerControllers'],
                 [$this, 'registerTwig'],
